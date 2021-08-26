@@ -6,3 +6,5 @@ Editado por DevilSecktor
 **version:** 1.0
 
 **description:** Editado por DevilSecktor
+
+**author:** DevilSecktor
