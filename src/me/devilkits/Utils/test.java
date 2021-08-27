@@ -1,11 +1,10 @@
 package me.devilkits.Utils;
 
-import org.bukkit.event.player.*;
-import org.bukkit.event.*;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.player.PlayerToggleSneakEvent;
 
-public class test
-{
-    @EventHandler
-    public void Dar(final PlayerToggleSneakEvent e) {
-    }
+public class test {
+	@EventHandler
+	public void Dar(final PlayerToggleSneakEvent e) {
+	}
 }
