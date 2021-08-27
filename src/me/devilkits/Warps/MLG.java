@@ -1,0 +1,89 @@
+package me.devilkits.Warps;
+
+import org.bukkit.event.*;
+import me.devilkits.*;
+import org.bukkit.command.*;
+import org.bukkit.entity.*;
+import org.bukkit.potion.*;
+import org.bukkit.inventory.*;
+import java.util.*;
+import org.bukkit.plugin.*;
+import org.bukkit.*;
+
+public class MLG implements Listener, CommandExecutor
+{
+    public static Main plugin;
+    
+    public MLG(final Main main) {
+        MLG.plugin = main;
+    }
+    
+    public boolean onCommand(final CommandSender sender, final Command cmd, final String commandLabel, final String[] args) {
+        if (cmd.getName().equalsIgnoreCase("mlg")) {
+            final Player p = (Player)sender;
+            final World w = Bukkit.getServer().getWorld(MLG.plugin.getConfig().getString("mlg.world"));
+            final double x = MLG.plugin.getConfig().getDouble("mlg.x");
+            final double y = MLG.plugin.getConfig().getDouble("mlg.y");
+            final double z = MLG.plugin.getConfig().getDouble("mlg.z");
+            final Location lobby = new Location(w, x, y, z);
+            lobby.setPitch((float)MLG.plugin.getConfig().getDouble("mlg.pitch"));
+            lobby.setYaw((float)MLG.plugin.getConfig().getDouble("mlg.yaw"));
+            p.getInventory().clear();
+            p.setHealthScale(1.0);
+            p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 500, 100));
+            p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 500, 100));
+            p.sendMessage(ChatColor.GRAY + "Teleportando em 5 segundos!");
+            Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin)MLG.plugin, (Runnable)new Runnable() {
+                @Override
+                public void run() {
+                    p.teleport(lobby);
+                    p.getInventory().clear();
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("");
+                    p.sendMessage("§7Teleportado!");
+                    p.setHealthScale(20.0);
+                    for (final PotionEffect effect : p.getActivePotionEffects()) {
+                        p.getInventory().setBoots((ItemStack)null);
+                        p.getInventory().setChestplate((ItemStack)null);
+                        p.getInventory().setLeggings((ItemStack)null);
+                        p.getInventory().setHelmet((ItemStack)null);
+                        p.setHealthScale(20.0);
+                        final ItemStack mlg = new ItemStack(Material.WATER_BUCKET);
+                        p.getInventory().setItem(4, mlg);
+                        p.setFireTicks(0);
+                        p.removePotionEffect(effect.getType());
+                        final ItemStack mlg2 = new ItemStack(Material.WATER_BUCKET);
+                        p.getInventory().setItem(4, mlg2);
+                    }
+                }
+            }, 90L);
+            return false;
+        }
+        return false;
+    }
+}

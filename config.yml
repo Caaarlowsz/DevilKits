@@ -1,0 +1,16 @@
+# Plugin criado por: DevilSecktor
+#Configuração geral do plugin:
+
+Versao: 5
+
+# Mensagem do Motd MOTD.
+Motd: '                     &7DevilKits &9v5!!!                                              &6Mensagem editavel na config'
+
+# Mensagem de join.
+Msg_Join: '&2+ &7%join%'
+
+# Mensagem de leave.
+Msg_Leave: '&4- &7%leave%'
+
+# Mensagem dos itens ta HotBar.
+HotBar: '&4Seu&fServidor'
